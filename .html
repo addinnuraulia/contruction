@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildCraft Construction - Professional Construction Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.75)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="construction" patternUnits="userSpaceOnUse" width="120" height="120"><rect width="120" height="120" fill="%23374151"/><rect x="10" y="10" width="100" height="60" fill="%23475569" rx="4"/><rect x="20" y="20" width="30" height="40" fill="%236b7280" rx="2"/><rect x="60" y="20" width="30" height="40" fill="%236b7280" rx="2"/><rect x="10" y="80" width="100" height="20" fill="%23f59e0b" rx="2"/><circle cx="30" cy="90" r="3" fill="%23fbbf24"/><circle cx="50" cy="90" r="3" fill="%23fbbf24"/><circle cx="70" cy="90" r="3" fill="%23fbbf24"/><circle cx="90" cy="90" r="3" fill="%23fbbf24"/></pattern></defs><rect width="1200" height="800" fill="url(%23construction)"/><g opacity="0.4"><rect x="100" y="150" width="200" height="120" fill="%233b82f6" rx="8"/><rect x="120" y="170" width="50" height="80" fill="%232563eb" rx="4"/><rect x="190" y="170" width="50" height="80" fill="%232563eb" rx="4"/><rect x="350" y="200" width="150" height="100" fill="%238b5cf6" rx="6"/><rect x="370" y="220" width="40" height="60" fill="%237c3aed" rx="3"/><rect x="430" y="220" width="40" height="60" fill="%237c3aed" rx="3"/><rect x="600" y="100" width="180" height="140" fill="%2310b981" rx="8"/><rect x="620" y="120" width="45" height="100" fill="%23059669" rx="4"/><rect x="685" y="120" width="45" height="100" fill="%23059669" rx="4"/><rect x="850" y="250" width="120" height="80" fill="%23ef4444" rx="6"/><rect x="870" y="270" width="30" height="40" fill="%23dc2626" rx="3"/><rect x="920" y="270" width="30" height="40" fill="%23dc2626" rx="3"/></g><g opacity="0.2"><path d="M0 400 Q300 350 600 400 T1200 400 L1200 800 L0 800 Z" fill="%23059669"/><circle cx="200" cy="100" r="25" fill="%23fbbf24"/><circle cx="800" cy="150" r="20" fill="%23f59e0b"/><circle cx="1000" cy="80" r="15" fill="%23fbbf24"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hero-content {
+            backdrop-filter: blur(2px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.8));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .form-container {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border: 1px solid #cbd5e1;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-blue-600">🏗️ BuildCraft</h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Home</a>
+                        <a href="#services" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Services</a>
+                        <a href="#portfolio" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">Portfolio</a>
+                        <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition">About</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition">Get Quote</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Home</a>
+                <a href="#services" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Services</a>
+                <a href="#portfolio" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Portfolio</a>
+                <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600">About</a>
+                <a href="#contact" class="block px-3 py-2 bg-blue-600 text-white rounded-md">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-orange-900/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="max-w-5xl mx-auto hero-content p-8 md:p-12">
+                <div class="mb-8">
+                    <div class="inline-flex items-center bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full px-6 py-3 mb-6">
+                        <span class="text-blue-200 text-sm font-medium">🏆 Award-Winning Construction Company</span>
+                    </div>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                    Building Your Dreams Into 
+                    <span class="bg-gradient-to-r from-blue-400 to-orange-400 bg-clip-text text-transparent">Reality</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-4xl mx-auto">
+                    Professional construction services with 15+ years of experience. From residential homes to commercial projects, we deliver excellence every time with unmatched quality and craftsmanship.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+                    <button onclick="scrollToSection('contact')" class="cta-button text-white px-10 py-5 rounded-xl text-lg font-semibold shadow-2xl transform hover:scale-105 transition-all duration-300">
+                        🚀 Get Free Quote
+                    </button>
+                    <button onclick="scrollToSection('portfolio')" class="bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-10 py-5 rounded-xl text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:scale-105">
+                        📋 View Our Work
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-8 border-t border-white/20">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-2">500+</div>
+                        <div class="text-blue-200 text-sm">Projects Done</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-2">15+</div>
+                        <div class="text-blue-200 text-sm">Years Experience</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-2">98%</div>
+                        <div class="text-blue-200 text-sm">Happy Clients</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-white mb-2">24/7</div>
+                        <div class="text-blue-200 text-sm">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-orange-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-green-500/20 rounded-full blur-xl animate-pulse delay-500"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stats-counter">500+</div>
+                    <p class="text-gray-600 font-medium">Projects Completed</p>
+                </div>
+                <div>
+                    <div class="stats-counter">15+</div>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                </div>
+                <div>
+                    <div class="stats-counter">98%</div>
+                    <p class="text-gray-600 font-medium">Client Satisfaction</p>
+                </div>
+                <div>
+                    <div class="stats-counter">24/7</div>
+                    <p class="text-gray-600 font-medium">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Construction Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We offer comprehensive construction solutions tailored to meet your specific needs and budget requirements.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                    <div class="text-4xl mb-4">🏠</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Residential Construction</h3>
+                    <p class="text-gray-600 mb-6">Custom homes, renovations, and additions. We bring your vision to life with quality craftsmanship and attention to detail.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• New home construction</li>
+                        <li>• Home renovations & remodeling</li>
+                        <li>• Kitchen & bathroom upgrades</li>
+                        <li>• Room additions & extensions</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                    <div class="text-4xl mb-4">🏢</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Commercial Construction</h3>
+                    <p class="text-gray-600 mb-6">Office buildings, retail spaces, and industrial facilities built to the highest standards with efficient project management.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Office building construction</li>
+                        <li>• Retail & restaurant spaces</li>
+                        <li>• Warehouse & industrial facilities</li>
+                        <li>• Tenant improvements</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Renovation & Remodeling</h3>
+                    <p class="text-gray-600 mb-6">Transform your existing space with our expert renovation services. From minor updates to complete overhauls.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Complete home makeovers</li>
+                        <li>• Structural modifications</li>
+                        <li>• Energy efficiency upgrades</li>
+                        <li>• Historic restoration</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                    <div class="text-4xl mb-4">🏗️</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Project Management</h3>
+                    <p class="text-gray-600 mb-6">End-to-end project management ensuring your construction project is completed on time and within budget.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Design & planning consultation</li>
+                        <li>• Permit acquisition</li>
+                        <li>• Timeline & budget management</li>
+                        <li>• Quality control & inspections</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                    <div class="text-4xl mb-4">🔨</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Specialty Services</h3>
+                    <p class="text-gray-600 mb-6">Specialized construction services including concrete work, roofing, electrical, and plumbing installations.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• Concrete & foundation work</li>
+                        <li>• Roofing & siding installation</li>
+                        <li>• Electrical & plumbing systems</li>
+                        <li>• HVAC installation</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Green Building</h3>
+                    <p class="text-gray-600 mb-6">Sustainable construction practices and eco-friendly building solutions for environmentally conscious clients.</p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li>• LEED certified construction</li>
+                        <li>• Solar panel installation</li>
+                        <li>• Energy-efficient materials</li>
+                        <li>• Sustainable design practices</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Recent Projects</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Take a look at some of our completed projects that showcase our expertise and commitment to quality.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="portfolio-item bg-gray-200 h-64 rounded-xl">
+                    <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                        <rect width="400" height="300" fill="#e5e7eb"/>
+                        <rect x="50" y="80" width="300" height="140" fill="#374151" rx="8"/>
+                        <rect x="70" y="100" width="80" height="60" fill="#60a5fa" rx="4"/>
+                        <rect x="170" y="100" width="80" height="60" fill="#60a5fa" rx="4"/>
+                        <rect x="270" y="100" width="60" height="100" fill="#8b5cf6" rx="4"/>
+                        <rect x="70" y="180" width="180" height="20" fill="#f59e0b" rx="2"/>
+                        <circle cx="320" cy="50" r="15" fill="#fbbf24"/>
+                        <path d="M50 80 L200 20 L350 80" stroke="#6b7280" stroke-width="3" fill="none"/>
+                    </svg>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Modern Family Home</h3>
+                            <p class="text-sm">4,200 sq ft custom home with sustainable features</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-gray-200 h-64 rounded-xl">
+                    <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                        <rect width="400" height="300" fill="#e5e7eb"/>
+                        <rect x="30" y="60" width="340" height="180" fill="#1f2937" rx="8"/>
+                        <rect x="50" y="80" width="60" height="140" fill="#3b82f6" rx="4"/>
+                        <rect x="130" y="80" width="60" height="140" fill="#3b82f6" rx="4"/>
+                        <rect x="210" y="80" width="60" height="140" fill="#3b82f6" rx="4"/>
+                        <rect x="290" y="80" width="60" height="140" fill="#3b82f6" rx="4"/>
+                        <rect x="50" y="240" width="300" height="20" fill="#059669" rx="2"/>
+                        <rect x="150" y="40" width="100" height="20" fill="#dc2626" rx="2"/>
+                    </svg>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Downtown Office Complex</h3>
+                            <p class="text-sm">15,000 sq ft commercial building with modern amenities</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-gray-200 h-64 rounded-xl">
+                    <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                        <rect width="400" height="300" fill="#e5e7eb"/>
+                        <rect x="40" y="100" width="320" height="120" fill="#4b5563" rx="8"/>
+                        <rect x="60" y="120" width="100" height="80" fill="#f59e0b" rx="4"/>
+                        <rect x="180" y="120" width="100" height="80" fill="#f59e0b" rx="4"/>
+                        <rect x="300" y="120" width="40" height="80" fill="#ef4444" rx="4"/>
+                        <rect x="100" y="80" width="200" height="20" fill="#8b5cf6" rx="10"/>
+                        <circle cx="80" cy="60" r="8" fill="#10b981"/>
+                        <circle cx="120" cy="60" r="8" fill="#10b981"/>
+                        <circle cx="280" cy="60" r="8" fill="#10b981"/>
+                        <circle cx="320" cy="60" r="8" fill="#10b981"/>
+                    </svg>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Retail Shopping Center</h3>
+                            <p class="text-sm">25,000 sq ft multi-tenant retail development</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-gray-200 h-64 rounded-xl">
+                    <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                        <rect width="400" height="300" fill="#e5e7eb"/>
+                        <rect x="60" y="120" width="280" height="100" fill="#6b7280" rx="8"/>
+                        <rect x="80" y="140" width="60" height="60" fill="#fbbf24" rx="4"/>
+                        <rect x="160" y="140" width="60" height="60" fill="#fbbf24" rx="4"/>
+                        <rect x="240" y="140" width="60" height="60" fill="#fbbf24" rx="4"/>
+                        <path d="M60 120 L200 60 L340 120" stroke="#374151" stroke-width="4" fill="none"/>
+                        <rect x="180" y="100" width="40" height="20" fill="#dc2626" rx="2"/>
+                        <circle cx="100" cy="250" r="12" fill="#059669"/>
+                        <circle cx="200" cy="250" r="12" fill="#059669"/>
+                        <circle cx="300" cy="250" r="12" fill="#059669"/>
+                    </svg>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Luxury Renovation</h3>
+                            <p class="text-sm">Complete home transformation with premium finishes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-gray-200 h-64 rounded-xl">
+                    <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                        <rect width="400" height="300" fill="#e5e7eb"/>
+                        <rect x="50" y="80" width="300" height="140" fill="#374151" rx="8"/>
+                        <rect x="70" y="100" width="50" height="100" fill="#8b5cf6" rx="4"/>
+                        <rect x="140" y="100" width="50" height="100" fill="#8b5cf6" rx="4"/>
+                        <rect x="210" y="100" width="50" height="100" fill="#8b5cf6" rx="4"/>
+                        <rect x="280" y="100" width="50" height="100" fill="#8b5cf6" rx="4"/>
+                        <rect x="70" y="60" width="260" height="20" fill="#ef4444" rx="2"/>
+                        <rect x="150" y="40" width="100" height="20" fill="#10b981" rx="2"/>
+                    </svg>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Industrial Warehouse</h3>
+                            <p class="text-sm">50,000 sq ft distribution center with loading docks</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item bg-gray-200 h-64 rounded-xl">
+                    <svg class="w-full h-full" viewBox="0 0 400 300" fill="none">
+                        <rect width="400" height="300" fill="#e5e7eb"/>
+                        <rect x="80" y="100" width="240" height="120" fill="#1f2937" rx="8"/>
+                        <rect x="100" y="120" width="40" height="80" fill="#22c55e" rx="4"/>
+                        <rect x="160" y="120" width="40" height="80" fill="#22c55e" rx="4"/>
+                        <rect x="220" y="120" width="40" height="80" fill="#22c55e" rx="4"/>
+                        <rect x="280" y="120" width="20" height="80" fill="#f59e0b" rx="4"/>
+                        <path d="M80 100 L200 50 L320 100" stroke="#059669" stroke-width="3" fill="none"/>
+                        <circle cx="200" cy="40" r="8" fill="#fbbf24"/>
+                        <rect x="180" y="240" width="40" height="15" fill="#8b5cf6" rx="2"/>
+                    </svg>
+                    <div class="portfolio-overlay">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Eco-Friendly Home</h3>
+                            <p class="text-sm">LEED certified sustainable home with solar panels</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button onclick="scrollToSection('contact')" class="cta-button text-white px-8 py-4 rounded-lg text-lg font-semibold">
+                    Start Your Project Today
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600">Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"BuildCraft exceeded our expectations with our home renovation. Their attention to detail and professionalism was outstanding. The project was completed on time and within budget."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg mr-4">
+                            SM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Sarah Mitchell</h4>
+                            <p class="text-gray-600 text-sm">Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"We hired BuildCraft for our office expansion and couldn't be happier. They managed the entire project seamlessly while we continued our business operations. Highly recommended!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 font-bold text-lg mr-4">
+                            DJ
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">David Johnson</h4>
+                            <p class="text-gray-600 text-sm">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"The team at BuildCraft built our dream home from the ground up. Their expertise in sustainable building practices and quality craftsmanship is unmatched. We love our new home!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold text-lg mr-4">
+                            ER
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Emily Rodriguez</h4>
+                            <p class="text-gray-600 text-sm">Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Why Choose BuildCraft Construction?</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        With over 15 years of experience in the construction industry, BuildCraft has established itself as a trusted partner for residential and commercial construction projects. We combine traditional craftsmanship with modern technology to deliver exceptional results.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600 font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Licensed & Insured</h3>
+                                <p class="text-gray-600">Fully licensed contractors with comprehensive insurance coverage for your peace of mind.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600 font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Quality Guarantee</h3>
+                                <p class="text-gray-600">We stand behind our work with comprehensive warranties and quality guarantees.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600 font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">On-Time Delivery</h3>
+                                <p class="text-gray-600">We respect your time and budget, delivering projects on schedule and within budget.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-blue-600 font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2">Expert Team</h3>
+                                <p class="text-gray-600">Skilled craftsmen and project managers with decades of combined experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 rounded-xl p-8">
+                    <svg class="w-full h-80" viewBox="0 0 400 320" fill="none">
+                        <rect width="400" height="320" fill="#f3f4f6" rx="12"/>
+                        <rect x="50" y="80" width="300" height="160" fill="#374151" rx="8"/>
+                        <rect x="70" y="100" width="80" height="60" fill="#3b82f6" rx="4"/>
+                        <rect x="170" y="100" width="80" height="60" fill="#3b82f6" rx="4"/>
+                        <rect x="270" y="100" width="60" height="120" fill="#8b5cf6" rx="4"/>
+                        <rect x="70" y="180" width="180" height="40" fill="#f59e0b" rx="4"/>
+                        <circle cx="320" cy="50" r="20" fill="#fbbf24"/>
+                        <path d="M50 80 L200 30 L350 80" stroke="#6b7280" stroke-width="4" fill="none"/>
+                        <rect x="150" y="260" width="100" height="20" fill="#10b981" rx="2"/>
+                        <text x="200" y="300" text-anchor="middle" fill="#6b7280" font-size="14" font-family="Arial">Quality Construction</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Quote Forms Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Get in touch with us today for a free consultation and quote. We're here to help bring your construction vision to life.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="form-container rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Us</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="contact-name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="contact-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" id="contact-phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="contact-subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="contact-subject" name="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="residential">Residential Project</option>
+                                <option value="commercial">Commercial Project</option>
+                                <option value="renovation">Renovation/Remodeling</option>
+                                <option value="consultation">Free Consultation</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+                            <textarea id="contact-message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full cta-button text-white py-4 rounded-lg text-lg font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Quote Request Form -->
+                <div class="form-container rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Request a Quote</h3>
+                    <form id="quote-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="quote-name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="quote-name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="quote-phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                <input type="tel" id="quote-phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="quote-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" id="quote-email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="project-type" class="block text-sm font-medium text-gray-700 mb-2">Project Type *</label>
+                            <select id="project-type" name="project-type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select project type</option>
+                                <option value="new-construction">New Construction</option>
+                                <option value="renovation">Renovation/Remodeling</option>
+                                <option value="addition">Home Addition</option>
+                                <option value="commercial">Commercial Project</option>
+                                <option value="specialty">Specialty Service</option>
+                            </select>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="project-size" class="block text-sm font-medium text-gray-700 mb-2">Project Size (sq ft)</label>
+                                <input type="number" id="project-size" name="project-size" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="e.g., 2500">
+                            </div>
+                            <div>
+                                <label for="budget-range" class="block text-sm font-medium text-gray-700 mb-2">Budget Range</label>
+                                <select id="budget-range" name="budget-range" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-50k">Under $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k-250k">$100,000 - $250,000</option>
+                                    <option value="250k-500k">$250,000 - $500,000</option>
+                                    <option value="over-500k">Over $500,000</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="project-timeline" class="block text-sm font-medium text-gray-700 mb-2">Desired Timeline</label>
+                            <select id="project-timeline" name="timeline" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                <option value="">Select timeline</option>
+                                <option value="asap">As soon as possible</option>
+                                <option value="1-3months">1-3 months</option>
+                                <option value="3-6months">3-6 months</option>
+                                <option value="6-12months">6-12 months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="project-details" class="block text-sm font-medium text-gray-700 mb-2">Project Details *</label>
+                            <textarea id="project-details" name="details" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Please describe your project in detail..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full cta-button text-white py-4 rounded-lg text-lg font-semibold">
+                            Request Free Quote
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl mb-4">📞</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Call Us</h3>
+                        <p class="text-gray-600">(555) 123-4567</p>
+                        <p class="text-sm text-gray-500">Mon-Fri: 7AM-6PM</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-4">✉️</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
+                        <p class="text-gray-600">info@buildcraft.com</p>
+                        <p class="text-sm text-gray-500">We respond within 24 hours</p>
+                    </div>
+                    <div>
+                        <div class="text-3xl mb-4">📍</div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Visit Us</h3>
+                        <p class="text-gray-600">123 Construction Ave<br>Builder City, BC 12345</p>
+                        <p class="text-sm text-gray-500">By appointment only</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">🏗️ BuildCraft</h3>
+                    <p class="text-gray-300 mb-4">Professional construction services with over 15 years of experience. Building dreams into reality.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition">📘</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">🐦</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">💼</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#services" class="hover:text-white transition">Residential Construction</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Commercial Construction</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Renovation & Remodeling</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Project Management</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#portfolio" class="hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>📞 (555) 123-4567</li>
+                        <li>✉️ info@buildcraft.com</li>
+                        <li>📍 123 Construction Ave<br>Builder City, BC 12345</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2024 BuildCraft Construction. All rights reserved. | Licensed & Insured | License #BC123456</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full text-center">
+            <div class="text-6xl mb-4">✅</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Message Sent Successfully!</h3>
+            <p class="text-gray-600 mb-6">Thank you for contacting BuildCraft Construction. We'll get back to you within 24 hours.</p>
+            <button onclick="closeModal()" class="cta-button text-white px-6 py-3 rounded-lg font-semibold">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add click handlers to navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Form submission handlers
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            console.log('Contact form submitted:', data);
+            
+            // Show success modal
+            showSuccessModal();
+            
+            // Reset form
+            this.reset();
+        });
+
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            console.log('Quote form submitted:', data);
+            
+            // Show success modal
+            showSuccessModal();
+            
+            // Reset form
+            this.reset();
+        });
+
+        function showSuccessModal() {
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-lg');
+            }
+        });
+
+        // Add animation to stats when they come into view
+        function animateStats() {
+            const stats = document.querySelectorAll('.stats-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        const numericValue = parseInt(finalValue.replace(/\D/g, ''));
+                        const suffix = finalValue.replace(/\d/g, '');
+                        
+                        let current = 0;
+                        const increment = numericValue / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= numericValue) {
+                                current = numericValue;
+                                clearInterval(timer);
+                            }
+                            target.textContent = Math.floor(current) + suffix;
+                        }, 30);
+                        
+                        observer.unobserve(target);
+                    }
+                });
+            });
+            
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateStats();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96a1c3f537005e3e',t:'MTc1NDM0OTQxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
